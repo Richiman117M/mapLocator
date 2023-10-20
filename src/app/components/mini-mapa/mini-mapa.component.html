@@ -1,0 +1,19 @@
+<div [ngClass]="{'fade-in-out': folio !== null, 'show': folio !== null}">
+
+    <div class="mesa-container">
+        <div *ngIf="mesaSeleccionada !== null" class="mesa-info">
+          <h2>Mesa Seleccionada: {{ folio }}</h2>
+          <p>¡Bienvenido! {{ equipo }}</p>
+        </div>
+      <button class="back-button" (click)="goBack()">Atrás</button>
+
+        <div *ngIf="mesaSeleccionada === null" class="mesa-info">
+          <h2>Folio no encontrado</h2>
+          <p>Lo siento, no se encontró una mesa para el folio proporcionado.</p>
+        </div>
+
+        <svg class="mini-mapa" width="600" height="900">
+          <image *ngIf="img" [attr.x]="-100" [attr.y]="1" [attr.width]="800" [attr.height]="800" [attr.href]="'assets/' + img + '.png'" />
+        </svg>
+    </div>
+</div>
